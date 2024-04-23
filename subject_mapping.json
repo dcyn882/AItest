@@ -1,0 +1,57 @@
+{
+    "Cybersecurity Operations": [
+        "systemsecurity",
+        "\\u7f51\\u7edc\\u5b89\\u5168\\u8fd0\\u8425",
+        "CyberSecurity"
+    ],
+    "Threat Intelligence and Analysis": [
+        "cryptography",
+        "\\u5a01\\u80c1\\u60c5\\u62a5\\u4e0e\\u5206\\u6790",
+        "CyberSecurity"
+    ],
+    "Network Security": [
+        "networksecurity",
+        "\\u7f51\\u7edc\\u5b89\\u5168",
+        "CyberSecurity"
+    ],
+    "Application Security": [
+        "applicationsecurity",
+        "\\u5e94\\u7528\\u7a0b\\u5e8f\\u548c\\u7f51\\u9875\\u5b89\\u5168",
+        "CyberSecurity"
+    ],
+    "Incident Response and Forensics": [
+        "memorysafety",
+        "\\u4e8b\\u4ef6\\u54cd\\u5e94\\u4e0e\\u53d6\\u8bc1",
+        "CyberSecurity"
+    ],
+    "Vulnerability Assessment and Penetration Testing": [
+        "pentest",
+        "\\u6f0f\\u6d1e\\u8bc4\\u4f30\\u4e0e\\u6e17\\u900f\\u6d4b\\u8bd5",
+        "CyberSecurity"
+    ],
+    "Cryptography": [
+        "cryptography",
+        "\\u6570\\u636e\\u4fdd\\u62a4\\u4e0e\\u9690\\u79c1",
+        "CyberSecurity"
+    ],
+    "Malwareanalysis": [
+        "malwareanalysis",
+        "\\u6cbb\\u7406\\u3001\\u98ce\\u9669\\u548c\\u5408\\u89c4",
+        "CyberSecurity"
+    ],
+    "Security Architecture and Engineering": [
+        "reverseengineering",
+        "\\u5b89\\u5168\\u67b6\\u6784\\u4e0e\\u5de5\\u7a0b",
+        "CyberSecurity"
+    ],
+    "Websecurity": [
+        "websecurity",
+        "\\u8eab\\u4efd\\u548c\\u8bbf\\u95ee\\u7ba1\\u7406",
+        "CyberSecurity"
+    ],
+    "Vulnerability": [
+        "vulnerability",
+        "\\u8eab\\u4efd\\u548c\\u8bbf\\u95ee\\u7ba1\\u7406",
+        "CyberSecurity"
+    ]
+}

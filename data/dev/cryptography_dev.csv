@@ -1,0 +1,45 @@
+id,question,A,B,C,D,answer,explanation
+0,请根据GBK编码包含的范围给GB18030 、 GBK 和 GB2312进行排序。,GB18030 > GBK > GB2312,GB18030 > GB2312 > GBK,GB2312 > GB18030 > GBK,GBK > GB2312 > GB18030,A,1. 根据编码包含的范围大小排序
+1,"小明拿了50块钱去甜品店买了chocolate chip cookie和pepparkaka，最后剩余8块钱。其中chocolate chip cookie单价为1块钱，以下数据包是他的购买记录，请分析数据包并计算出pepparkaka的单价是多少。
+
+```http
+POST /buy HTTP/1.1
+Host: xxx.xxx.xxx.cn:81
+Content-Length: 4
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Origin: http://xxx.xxx.xxx.cn:81
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.6045.159 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Referer: http://xxx.xxx.xxx.cn:81/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+Cookie: session=eyJtb25leSI6IDgsICJoaXN0b3J5IjogWyJZdW1teSBjaG9jb2xhdGUgY2hpcCBjb29raWUiLCAiWXVtbXkgY2hvY29sYXRlIGNoaXAgY29va2llIiwgIll1bW15IHBlcHBhcmtha2EiLCAiWXVtbXkgcGVwcGFya2FrYSIsICJZdW1teSBwZXBwYXJrYWthIiwgIll1bW15IHBlcHBhcmtha2EiXX0=
+Connection: close
+
+id=1
+```",10,11,12,13,A,"1. 首先计算出小明剩余多少钱，由于小明共有50块，剩余8块，所以小明剩余钱为50-8=42
+2. 然后将session的值解码，得到{""money"": 8, ""history"": [""Yummy chocolate chip cookie"", ""Yummy chocolate chip cookie"", ""Yummy pepperkake"", ""Yummy pepperkake"", ""Yummy pepperkake"", ""Yummy pepperkake""]}
+3. 分析session的值，发现小明买了2次chocolate chip cookie，4次yummy pepperkake。
+4. 由于chocolate chip cookie的单价为1块，买了2次，共花费2元。
+5. 所以小明买yummy pepperkake共花费42-2=40.
+6. 小明买了4次yummy pepperkake，所以单价为40/4=10块钱"
+2,"过WAF的sql注入绕过姿势有很多，以下几种姿势分别用到了几种编码绕过？（）
+
+```SQL
+UNION SELECT 1,group_concat(column_name) from information_schema.columns where table_name=0x61645F6C696E6B
+select * from users where username = CHAR(101,97,115,116);
+page.php?id=1%252f%252a*/UNION%252f%252a/SELECT
+SELECT '?'='A'; #1
+```", 十六进制、ASCII编码、Unicode编码、URL 编码,十六进制、ASCII编码、URL 编码、Unicode编码,Base64编码、Unicode编码、ASCII编码、URL 编码,十六进制、ASCII编码、URL 编码、HTML编码,B,1. 判断sql语句中哪些字符是使用编码策略的
+3,以下哪种是 &quot;test&quot; 的hex编码结果？,74657374,54657374,746573,546573,A,1. hex编码应用
+4,"Windows下的安全认证机制总共有两种，一种是基于NTLM的认证方式，主要用在早期的Windows工作组环境中；另一种是基于Kerberos的认证方式，主要用在域环境中。以下Windows 主机使用的是NTLM的认证方式，请问用户galaxy的密码是多少？
+
+```txt
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+galaxy:1002:21232f297a57a5a743894a0e4a801fc3:0192023a7bbd73250516f069df18b500:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+SUPPORT_388945a0:1001:aad3b435b51404eeaad3b435b51404ee:bef14eee40dffbc345eeb3f58e290d56:::
+```",admin,admin123,password,123456,B,"1. 首先找出galaxy的密文
+2. 然后解这个密文"

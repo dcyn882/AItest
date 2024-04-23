@@ -1,0 +1,19 @@
+{
+  "cybersecurity": {
+    "score": 50.0,
+    "num": 98,
+    "correct": 49.0
+  },
+  "grouped": {
+    "Security": {
+      "correct": 49.0,
+      "num": 98,
+      "score": 50.0
+    }
+  },
+  "All": {
+    "score": 50.0,
+    "num": 98,
+    "correct": 49.0
+  }
+}

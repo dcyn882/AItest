@@ -1,0 +1,163 @@
+id,question,A,B,C,D
+0,在进行XXE漏洞利用时，遇到防火墙阻断了我们的攻击测试，我们可以通过XML特性对其进行绕过测试，以下不是XML的特性的是:,字符集,实体编码,unicode编码,CDATA转义
+1,XML的实体编码类型中，以下类型不在其中的是：,十六进制实体编码,十进制实体编码,八进制实体编码,预定义字符实体
+2,XML解析的说明中，以下说法不正确的是,JAVA中主流的XML解析器底层都是使用的xerces，所以他们具有一样的解析特性,XML标签属性不支持XML实体编码,XML标签文本与标签属性文本具有不同的解析特性,XML文本中遇到特殊字符时需要转义处理，可以使用 “<![CDATA[]]>”、“XML实体编码” 方式
+3,关于XML的的说法不正确的是？,XML实体编码有： 十六进制实体编码 、十进制实体编码 、八进制实体编码、 预定义字符实体,不同语言不同XML解析库的解析特性不完全一致,XML标签文本与标签属性均支持实体编码,JAVA 、PHP、IIS 的XML解析都支持UTF16编码
+4,Windows平台下，以下哪种```whoami```命令的绕过方式能正常执行？,who^ami^,WHO""AMI,(whoami)),/whoami
+5,Linux中，可以使用问号```?```来绕过限制，那么```/u?r/?in/wh?am?```可以匹配正确的是？,/user/bin/whoami,/usr/bin/whoami,/usr/in/whoami,na
+6,Linux中，可以使用星号```*```来绕过限制，那么```/*/bin/wh*mi```不能匹配的是？,/bin/whoami,/usr/bin/whomia,/u/bin/whoami,na
+7,Linux中，语句```a=c;b=t;c=a;i=&quot; 1&quot;;$a$b$c$i```实际执行命令是什么？,cat1,cta 1,cat 1,na
+8,在网上购物时，用户A有余额10元，商品X价格5元/件，商品Y价格6元/件，我们可以尝试哪种攻击让用户A可以买入商品X、商品Y各一件？,多线程发包竞争条件,CSRF,SSRF,Jsonp劫持
+9,如果登录系统设置了IP地址白名单，尝试添加或修改哪个HTTP字段绕过没有用,X-Forwarded-For,Client-Ip,User-Agent,na
+10,任意文件下载防御中，通常会将参数进行过滤，最常见的是将```../```替换为空，请问下列哪个语句能绕过过滤并成功实现目录穿越？,...//,....//,../../,na
+11,"下列哪个选项能绕过如下的检测？
+
+```code
+if(!preg_match("".../"", $_GET[""file""]){
+	$filepath = urldecode($_GET[""file""]);
+	readfile($filepath);
+} 
+```",%25%32%65%25%32%65%25%32%66,....//,%2e%2e/,na
+12,基于Referer字段检查的CSRF防御绕过方式不包含下面哪一种？,移除referer字段,绕过正则表达式,更改请求方式,na
+13,基于CSRF token的防御措施绕过方法一般不包括？,删除token参数或发送空token,使用另一个session的CSRF token,Session固定,移除referer字段
+14,不管哪种CSRF防御措施，一般首先会尝试什么方法绕过？,点击劫持和更改请求方法,注入SQL参数,注入命令执行参数,na
+15,"以下代码在服务端对上传文件的Content-Type进行判断，哪个选项的操作可以绕过该判断，成功上传PHP脚本文件？
+![image.png](http://galaxy.pingan.com.cn/resource/question/download/image/9ed5e360c8644b21b6901c7951ab5da9.png)",直接上传.php后缀的文件,直接上传.jpg后缀的文件,上传.php后缀的文件 -> 抓取请求包 -> 在http头中添加『Content-Type: image/gif』,上传.php后缀的文件 -> 抓取请求包 -> 修改Content-Type的值为image/gif
+16,"以下代码在服务端对上传文件的后缀进行判断，哪个选项的操作可以绕过该判断，成功上传PHP脚本文件？
+
+```php
+<?php
+if (isset($POST['submit'])) {
+	if (file_exists(UPLOAD_PATH)) {
+		$deny_ext = array("".php"","".php5"","".php4"", "".php3"","".php2"","".html"","",htm"", "",phtml"","",pht"","".swf"","".htaccess"");
+		$file_name = trim($ FILES['upload_file']['name']):
+		$file_name = deldot($file_name);//删除文件名未尾的点
+		$file_ext = strrchr($file_name,'.');
+		$file_ext = str_ireplace('::$DATA', '', $file_ext);//去除字符串::$DATA
+		$file_ext = trim($file_ext); //首尾去空
+
+		if (!in array($file_ext, $deny_ext)) {
+			$temp_file = $FILES['upload_file']['tmp_name'];
+			$img_path = UPLOAD_PATH.'/'.$file_name;
+			if (move_uploaded_file($temp_file, $img_path)) {
+				$is_upload = true;
+			} else {
+				$msg ='上传出错!';
+			}
+		 } else {
+			$msg ='此文件类型不允许上传!';
+		 }
+	}else{
+		$msg = UPLOAD_PATH . '文件夹不存在,请手工创建!';
+	}
+?>
+
+```",上传.php后缀的文件,上传.jpg后缀的文件,上传.pHp后缀的文件,上传.pphphp后缀的文件
+17,"以下代码在服务端对上传文件的后缀进行处理，哪个选项的操作可以绕过该处理，成功上传PHP脚本文件？
+![image.png](http://galaxy.pingan.com.cn/resource/question/download/image/577824f1947c4160851f414697c617f9.png)",上传.php后缀的文件,上传.jpg后缀的文件,上传.pHp后缀的文件,上传.pphphp后缀的文件
+18,"以下代码在服务端对上传文件的内容进行判断，哪个选项的操作可以绕过该判断，成功上传PHP脚本文件？
+![image.png](http://galaxy.pingan.com.cn/resource/question/download/image/4b636d7f5e3441768a798221fb3f1783.png)",PHP脚本文件开头添加GIF图片文件头`GIF`,PHP脚本文件开头添加GIF图片文件头`GIF89a`,上传.php后缀的文件 -> 抓取请求包 -> 在http头中添加『Content-Type: image/gif』,上传.php后缀的文件 -> 抓取请求包 -> 修改Content-Type的值为image/gif
+19,"以下代码在Apache服务端对上传文件的后缀进行判断，哪个选项的操作可以绕过该判断，成功上传PHP脚本文件？
+![image.png](http://galaxy.pingan.com.cn/resource/question/download/image/480d9974eeb6447082f3988c468fdeeb.png)",上传.php.7Z后缀的文件,上传.php.rar后缀的文件,上传.pHp后缀的文件,na
+20,"服务端为Windows + IIS7/7.5的环境配置情况下，成功上传内容为`&lt;?php assert($_POST[&quot;Galaxy&quot;])?&gt;`，名为`1.jpg`的文件。
+可以尝试构造哪种访问路径，使`1.jpg`被当作PHP脚本文件解析。",http://www.A.com/1.jpg/xx.php,http://www.A.com/1.php,http://www.A.com/1.php/xx.jpg,http://www.A.com/1.php/xx.php
+21,如果SSRF防御限制了对地址127.0.0.1的访问，以下哪种方式不能绕过防护，访问127.0.0.1的服务,2130706433,localhost,127.0.0.2,0177.0.0.1
+22,对于`http://root@127.0.0.1:6379@www.baidu.com`这个URL，PHP的`parse_url`函数解析得到的域名是什么,root,127.0.0.1,www.baidu.com,以上都不对
+23,使用30x跳转绕过SSRF的域名检查，以下哪一项是正确的,30x跳转可以绕过所有的域名检查,30x跳转需要攻击者提供一个跳转到目标地址的HTTP服务,30x跳转只能对HTTP协议的SSRF漏洞进行利用,以上说明都不对
+24,对于检测网站是否存在waf，下列说法中哪个不正确？,"在网站URL后面加上最基础的测试语句，比如:union select 1,2,3%23",执行sqlmap来检测是否存在waf：sqlmap.py -u "http://www.xxoo.com/shownnews.asp?id=48" --shell,在URL地址后面添加sql语句，如：'，and ，and 1=1等，有时会被waf检测到，并回显出来网站的waf信息,可以使用工具Wafw00f等进行判断 
+25,常见的过WAF技巧中，关于大小写绕过，说法错误的是,大小写绕过用于只针对小写或大写的关键字匹配技术,任何waf都可以使用该方法绕过,防止waf被绕过的方法:对每个关键字或每种情况都做大小写转换的处理,na
+26,测试sql注入漏洞时，服务端对空格进行了过滤，可以用什么代替空格？,"#,-- , //, /**/,%00",SelEct,selselectect,na
+27,关于SQL注入注释绕过，正确的是,可以在构造的查询语句中插入/**/注释，以规避对空格的依赖或关键字识别,只有当waf的正则对大小写不敏感时，SQL注入注释绕过才有效,/*select * from user;*/此注释里面的语句会被执行,na
+28,关于sql注入绕过waf介绍中错误的是？,网站能够被大小写绕过是因为：waf里使用的正则不完善或者是没有用大小写转换函数,网站能够被替换关键字绕过是因为：利用waf的不完整性，只验证一次字符串或者过滤的字符串并不完整,缓冲区溢出用于绕过WAF是因为WAF过滤不完全,na
+29,过WAF技巧中关于参数污染说法错误的是,HPP(HTTP Parameter Polution)又称做重复参数污染，当同一参数出现多次，不同中间件会解析为不同的结果,如果WAF只检测了同参数名中的第一个或最后一个，并且中间件特性正好取与WAF相反的参数，则可成功绕过。,HTTP参数污染注入源于网站对于提交的相同的参数的不同处理方式导致,要防止 HPP 引发的漏洞，只要做好对输入参数的格式验证就可以
+30,"对于下面的代码，哪些选项可以实现弹框？
+
+```
+<html><body><?php
+$keyword = $_GET[""keyword""];
+$keyword = preg_replace('/javascript/','',$keyword);
+$keyword = htmlspecialchars($keyword);
+echo ""<a href="".$keyword. "">跳转</a>"";
+?></body></html>
+```",keyword=java+script:alert(1),keyword=javascript:alert(1),keyword=javasjavascriptcript:alert(1),keyword=javasc<!---->ript:alert(1)
+31,"对于下面代码，选项中可以实现弹框的是？
+
+```
+<html><body><?php
+$keyword = $_GET[""keyword""];
+$keyword = preg_replace('/script/i','',$keyword);
+echo ""<code>println(, "".$keyword."")</code>"";
+?></body></html>
+```",keyword=<Script>alert(1)</Script>,keyword=<sscriptcript>alert(1)</script>,keyword=<img src="javascript: alert(1)">,keyword=<img src="x" onerror=alert(1)>
+32,"开发人员为禁止用户进行XSS利用，编写了如下规则，
+
+```
+$keyword = preg_replace('/http:\/\//i','',$keyword);
+```
+在下列选项中，哪个可以绕过该规则？",<img src onerror=document.location=`//www.baidu.com`>,<img src onerror="document.location=`http://www。baidu。com`">,<img src onerror=document.location=`www.baidu.com`> ,<img src onerror="document.location=`://www。baidu。com`">
+33,"禁用on事件后，
+
+```
+$keyword = $_GET[""keyword""];
+$keyword = preg_replace('/on[\w]+=/i','',$keyword);
+echo ""<code>println(, "".$keyword."")</code>"";
+```
+如下哪些选项，可以实现XSS利用？",<img src='alert(1)'>,<a href="javascript:prompt(1)">跳转</a>,<img src=x %6f%6e%65%72%72%6f%72=alert(1)>,<img src=x \157\156\145\162\162\157\162=alert(1)>
+34,"针对如下的过滤检查，
+
+```
+$keyword = $_GET[""keyword""];
+$keyword = preg_replace('/javascript/i','',$keyword);
+echo ""<img src=\"".$keyword.""\"">"";
+```
+下列选项中无法绕过的是？",keyword=" onerror="top['al'+'ert'](1),keyword=" onerror="a=`aler`;b=`t`;c='(1);';eval(a+b+c)","keyword="" onerror=""eval('~a~le~rt~~(~~1~~)~'.replace(/~/g,''))",keyword=javas+cript:prompt(1)
+35,由于保单文件存在个人信息，因此开发者在开发保单保存及下载功能时，使用文件名时间戳的md5来命名并保存保单文件，以防止其他用户下载保单文件。面对以上功能设计，应如何进行渗透测试？,钓鱼邮件窃取管理员账户,网页注入代码,管理员账户名和密码,遍历时间戳并进行md5，尝试越权其它人保单
+36,BurpSuite中，什么模块用于进行暴力破解，FUZZ参数？,Proxy,Intruder,Repeater,Comparer
+37,BurpSuite中，什么模块可以拦截并修改返回包？,Proxy,Intruder,Repeater,Comparer
+38,BurpSuite中，什么模块可以比较两个数据包之间的差别？,Proxy,Intruder,Repeater,Comparer
+39,BurpSuite中，自动替换请求头/返回头的设置在什么位置？,Proxy - Options,Target - Scope,Proxy - HTTP History,Extensions - Options
+40,当进行密码爆破时有相同网络登录次数限制，应该采用以下哪个方案来进行绕过限制？,调整爆破频率,更换请求头,使用ip代理池,增加X-Forwarded-For头字段
+41,在端口对攻击者IP进行限制时，攻击者可以使用代理服务器来绕过登录失败锁定和验证码机制，进行账户爆破攻击。以下哪种代理服务器无法隐藏攻击者的真实IP地址？,匿名代理服务器,透明代理服务器,高匿代理服务器,反向代理服务器
+42,某网站的登录界面包含一个验证码，要求用户在输入用户名和密码之前先输入正确的验证码。然而，您想要使用自动化工具进行账户爆破攻击，该怎么做才能绕过验证码？,禁用浏览器的JavaScript引擎，使验证码无法正常工作,使用OCR技术自动识别验证码，并将其作为参数发送给服务器,通过使用代理服务器来绕过验证码限制,使用默认的用户名和密码进行尝试，因为验证码不会对它们进行验证
+43,以下哪种编码格式可以用来表示世界上所有语言的字符集？,ASCII,UTF-8,ISO-8859-1,Base64
+44,以下哪项编码是test的html编码？,dGVzdA==,74657374,test,ORSXG5A=
+45,以下哪种不属于编码？,Base64,hex,URL,AES
+46,以下哪项是&quot;&lt;&gt;&quot;的base64编码的结果？,&lt;&gt;,%3C%3E,3c3e,PD4=
+47,BurpSuite默认开启哪种类型的扫描？,主动扫描,被动扫描,主动扫描+被动扫描,AI扫描
+48,一个白帽子在一次测试中发现一个宽字节sql注入漏洞，他通过此漏洞拿到了用户名和密码的值，进入了后台。请问此注入漏洞是利用了什么编码实现的绕过？,HTML编码,GBK编码,UTF-8编码,HEX编码
+49,某电商系统采用了基于角色的权限控制方案，系统中存在商铺管理员和消费者两个角色，商铺管理员角色可以上架、编辑、下架商品，消费者角色则只能查看、购买商品。对于此功能，可以进行哪种方式的越权测试?,使用消费者账户访问商铺的商品编辑页面并尝试编辑保存商品,使用商铺管理员角色尝试查看未上架商品,使用商铺管理员角色尝试下架其他商铺的商品,使用消费者角色尝试购买其他商铺的商品
+50,"某论坛中，用户可以在【个人历史发帖】页面查看自己发过的所有贴子列表(请求接口为/mypost)，点击【个人历史发帖】页面中的帖子，可以进入帖子的详细页面(请求接口为/mypost?post_Id=1)，并对帖子进行编辑、删除等操作。
+对于以上功能，可以如何进行越权测试?",使用小明账号的token，替换掉小红的token，然后继续查看小红的【个人历史发帖】 页面,使用小明账号的token，替换掉小红的token，然后继续查看小红公开的帖子,使用小明账号的token，替换掉小红的token，然后继续编辑小红的帖子,使用小明账号的token，替换掉小红的token，然后回复小红公开的帖子
+51,"某系统中，用户查看个人信息使用的接口为
+```/userinfo?userId=1FCA742A-23DB-0D4B-A3F3-C5C096AD6602&amp;page=1&amp;size=10```
+该userId为32位随机字符串（无法猜解也无法从其他页面获得），针对此接口，可以进行什么样的越权测试？",遍历userId,删除userId参数,修改page参数,修改size参数
+52,某论坛系统，注册用户可以进行发帖、看帖，对本人发的帖子可以进行编辑，并且编辑帖子接口检查了帖子归属，在此种情况下，可以进行哪种方式的越权测试？,发帖的时候，把本人的token替换为别人的token,编辑帖子的时候，把帖子id换成别人的帖子id,查看帖子的时候，把本人的token替换为别人的token,发帖的时候，在请求参数中额外增加他人帖子的id来尝试覆盖别人的帖子
+53,在前台页面显示手机号被特殊处理时，以下哪个操作可以获取完整手机号码信息？,抓取响应包，查看响应包原文是否经过处理,尝试多个系统进行拼接,社工,其他选项都可以
+54,对敏感信息测试时，发现前端页面对敏感信息进行了打码处理，还应测试何处？,服务器发出的报文是否加密,是否存在敏感的参数可以遍历信息,加密的敏感信息是否可以破译,以上都是
+55,关于页面越权的测试方法，以下说法不正确的是,对可控参数进行修改，尝试越权,对不同权限的角色进行相同操作，看是否得到相同的响应报文,检查相同权限的角色，看是否能访问对方的资源,其他三种说法中，有一项是错误的
+56,在内网中大范围的进行扫描收集域内信息时，使用下面哪种扫描更加的隐蔽与安全?,TCP,UDP,SPN,SMB
+57,windows下运行powershell信息收集脚本时，默认是禁止脚本执行的，如何绕过默认的策略执行脚本,使用-NoLogo参数,使用-ExecutionPolicy Bypass参数,使用-noexit参数,使用-W Hidden参数
+58,Ntds.dit是主要的AD数据库，Ntds.dit是默认被Windows系统锁定的，通过什么方法可以获取文件,卷影拷贝,暴力破解,内存提取,远程溢出
+59,下面哪一项有关计划任务提权的说法是正确的？,so文件注入,文件重写,LD_PRELOAD,文件所有者权限
+60,以下哪种方式不是sudo提权？,sudo滥用,so文件注入,LD_PRELOAD提权,利用find提权
+61,以下哪个文件，最不可能泄露密码？,/etc/passwd??,/etc/shadow,/etc/hosts,na
+62,下列哪个选项不是内网渗透过程中需要收集的系统日志？,wtmp ,/var/log/secure,kibana,.bash_history
+63,如果某个站点通过检查referer来防御CSRF攻击，那么以下哪种说法是错误的？,检查referer的正则表达式如果配置不当，可能造成绕过,可以尝试将referer置为空值，来尝试绕过防护,如果站点存在XSS漏洞，那么也可以通过注入恶意JS代码实现绕过,另外三个选项中，有一项说法是错误的
+64,遇到防火墙对我们的XXE Payload进行拦截，下面哪个绕过思路是错误的？,通过更改XML文档的字符集来尝试绕过,通过systemId或publidId来引用外部文档,可以尝试使用HTML编码,可以尝试通过宽字节空白字符\x28\x20作为混淆数据
+65,发现防火墙对外部实体中的协议进行了过滤，我们可以尝试其他协议来进行漏洞利用，下面哪个协议不在其中：,netdoc,ftp,https,zip
+66,linux环境下，当cat、空格和/etc/passwd都被黑名单过滤时，使用如下哪个命令可以绕过黑名单读取/etc/passwd？,cat${IFS}/etc/''passwd,cat /etc/''passwd,/???/?at /etc/passwd,/???/?at${IFS}/etc/''passwd
+67,以下哪种绕过方式不适用于任意命令执行漏洞？,通配符绕过,${IFS}绕过,内联注释绕过,编码绕过
+68,渗透测试中，以下哪个阶段主要侧重于目标侦查？,漏洞分析,初始访问,信息收集,横向移动
+69,在渗透测试中，社会工程学的主要目标是：,破解密码,通过欺骗获取信息,获取系统管理员权限,注入恶意代码
+70,渗透测试中，模糊测试（Fuzz Testing）的主要目的是：,分析网络流量,模拟恶意软件攻击,加密数据传输,发现应用程序漏洞
+71,下列哪项一般不是购物平台支付环节会出现的逻辑漏洞点？,商品id,商品数量,商品价格,用户积分
+72,下列哪种方法可以测试验证码是否存在漏洞？,观察是否前端js校验验证码,观察是否可以重复使用,观察是否绑定了使用场景和手机号,这些说法都是
+73,Burp Suite 的 Spider 工具的作用是：,端口扫描,自动识别并遍历目标应用程序的链接,实施网络防御,进行主机发现
+74,Burp Suite 的 Intruder 工具主要用于：,网络嗅探,数据包捕获,字典攻击和暴力破解,加密解密
+75,Burp Suite 的 Options 主要用于：,配置代理服务器,设置字典攻击参数,管理扫描策略,进行数据包捕获
+76,"现有如下payload:
+
+```javascript
+<img src='1' onerror='alert(document.cookie)'/>
+```
+如果空格被过滤，如何改造payload，使其可以绕过检测？",<img sRc='1' onERror='aLERt(document.cookie)'/>,<img/src='1'/onerror='alert(document.cookie)'/>,<img src='1' onerror='alert(%64%6f%63%75%6d%65%6e%74%2e%63%6f%6f%6b%69%65)'/>,<a href='javascript:alert(document.cookie)'>abc</a>
